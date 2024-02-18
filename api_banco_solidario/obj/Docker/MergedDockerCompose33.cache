@@ -1,0 +1,42 @@
+name: dockercompose10756532808323851716
+services:
+  SqlServerDb:
+    container_name: SqlServerContainer
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Express
+      MSSQL_SA_PASSWORD: abcDEF123
+      MSSQL_TCP_PORT: "1433"
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    networks:
+      api_banco_solidario_app: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "8002"
+        protocol: tcp
+  api_banco_solidario:
+    build:
+      context: C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario
+      dockerfile: api_banco_solidario/Dockerfile
+    container_name: BancoSolidarioApp
+    depends_on:
+      SqlServerDb:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      DB_HOST: SqlServerDb
+      DB_NAME: titos
+      DB_SA_PASSWORD: abcDEF123
+    image: apibancosolidario
+    networks:
+      api_banco_solidario_app: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+networks:
+  api_banco_solidario_app:
+    name: dockercompose10756532808323851716_api_banco_solidario_app

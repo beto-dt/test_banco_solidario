@@ -1,12 +1,106 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|c:\\users\\titos\\onedrive\\documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|solutionrelative:api_banco_solidario\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72C3FD84-A451-4B91-9281-CB31DA6BE6D0}|docker-compose.dcproj|c:\\users\\titos\\onedrive\\documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{72C3FD84-A451-4B91-9281-CB31DA6BE6D0}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|c:\\users\\titos\\onedrive\\documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|solutionrelative:api_banco_solidario\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|c:\\users\\titos\\onedrive\\documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|solutionrelative:api_banco_solidario\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\Program.cs",
+              "RelativeDocumentMoniker": "api_banco_solidario\\Program.cs",
+              "ToolTip": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\Program.cs",
+              "RelativeToolTip": "api_banco_solidario\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-18T22:12:36.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\docker-compose.yml",
+              "RelativeDocumentMoniker": "docker-compose.yml",
+              "ToolTip": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\docker-compose.yml",
+              "RelativeToolTip": "docker-compose.yml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAA0AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2024-02-18T21:48:27.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "api_banco_solidario\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "api_banco_solidario\\Controllers\\ProductsController.cs",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAQwFcAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-18T21:45:19.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\appsettings.json",
+              "RelativeDocumentMoniker": "api_banco_solidario\\appsettings.json",
+              "ToolTip": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\appsettings.json",
+              "RelativeToolTip": "api_banco_solidario\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-02-18T22:38:34.729Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,29 @@
+name: dockercompose10756532808323851716
+services:
+  SqlServerDb:
+    build:
+      context: C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\api_banco_solidario\Db
+      dockerfile: Dockerfile
+    networks:
+      default: null
+  api_banco_solidario:
+    build:
+      context: C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario
+      dockerfile: api_banco_solidario/Dockerfile
+    depends_on:
+      SqlServerDb:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+    image: apibancosolidario
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+networks:
+  default:
+    name: dockercompose10756532808323851716_default

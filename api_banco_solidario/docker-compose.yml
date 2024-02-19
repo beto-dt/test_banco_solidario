@@ -24,9 +24,5 @@ services:
       dockerfile: api_banco_solidario/Dockerfile
     depends_on:
       - SqlServerDb
-    environment:
-      - DB_HOST=SqlServerDb
-      - DB_NAME=titos
-      - DB_SA_PASSWORD=abcDEF123
     networks:
       - api_banco_solidario_app

@@ -1,27 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace api_banco_solidario.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class UsersController : Controller
     {
         private IConfiguration _configuration;
 
-        public ProductsController(IConfiguration configuration)
+        public UsersController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
         [HttpGet]
-        [Route("GetProducts")]
-     
-        public JsonResult GetProducts()
+        [Route("GetUsers")]
+
+        public JsonResult GetUsers()
         {
-            string query = "select * from products";
+            string query = "select * from users";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -40,11 +39,11 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpGet]
-        [Route("GetProduct")]
+        [Route("GetUser")]
 
-        public JsonResult GetProduct(int id)
+        public JsonResult GetUser(int id)
         {
-            string query = "select * from products where id=@id";
+            string query = "select * from users where id_user=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -64,11 +63,11 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateProduct")]
+        [Route("UpdateUser")]
 
-        public JsonResult UpdateProduct([FromForm] string name,[FromForm] int id)
+        public JsonResult UpdateUser([FromForm] string name, [FromForm] int id)
         {
-            string query = "update products set name = @name  where id=@id";
+            string query = "update users set name = @name  where id_user=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -89,11 +88,11 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpPost]
-        [Route("AddProduct")]
+        [Route("AddUser")]
 
-        public JsonResult AddProduct([FromForm] string newProduct , [FromForm] string newPrice)
+        public JsonResult AddProduct([FromForm] string newCardId, [FromForm] string newName, [FromForm] string newLastname, [FromForm] string newEmail, [FromForm] string newPassword, [FromForm] string newCreated)
         {
-            string query = "insert into products values (@newProduct, @newPrice)";
+            string query = "insert into users values (@newCardId, @newName, @newLastname, @newEmail, @newPassword,@newCreated)";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -102,8 +101,12 @@ namespace api_banco_solidario.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@newProduct", newProduct);
-                    myCommand.Parameters.AddWithValue("@newPrice", newPrice);
+                    myCommand.Parameters.AddWithValue("@newCardId", newCardId);
+                    myCommand.Parameters.AddWithValue("@newName", newName);
+                    myCommand.Parameters.AddWithValue("@newLastname", newLastname);
+                    myCommand.Parameters.AddWithValue("@newEmail", newEmail);
+                    myCommand.Parameters.AddWithValue("@newPassword", newPassword);
+                    myCommand.Parameters.AddWithValue("@newCreated", newCreated);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -114,11 +117,11 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteProduct")]
+        [Route("DeleteUser")]
 
-        public JsonResult DeleteNote(int id)
+        public JsonResult DeleteUser(int id)
         {
-            string query = "delete from products where id=@id";
+            string query = "delete from users where id_user=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -136,6 +139,7 @@ namespace api_banco_solidario.Controllers
             }
             return new JsonResult("Deleted Successfully");
         }
+
 
     }
 }

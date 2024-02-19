@@ -6,21 +6,21 @@ namespace api_banco_solidario.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : Controller
+    public class RateTypesController : Controller
     {
         private IConfiguration _configuration;
 
-        public UsersController(IConfiguration configuration)
+        public RateTypesController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
         [HttpGet]
-        [Route("GetUsers")]
+        [Route("GetRateTypes")]
 
-        public JsonResult GetUsers()
+        public JsonResult GetRateTypes()
         {
-            string query = "select * from users";
+            string query = "select * from rateTypes";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -39,11 +39,11 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpGet]
-        [Route("GetUser")]
+        [Route("GetRateType")]
 
-        public JsonResult GetUser(int id)
+        public JsonResult GetRateType(int id)
         {
-            string query = "select * from users where id_user=@id";
+            string query = "select * from rateTypes where id_rateType=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -63,11 +63,11 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateUser")]
+        [Route("UpdateRateType")]
 
-        public JsonResult UpdateUser([FromForm] string name, [FromForm] int id)
+        public JsonResult UpdateRateType([FromForm] string name, [FromForm] int id)
         {
-            string query = "update users set name = @name  where id_user=@id";
+            string query = "update rateTypes set name = @name  where id_rateType=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -88,11 +88,11 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpPost]
-        [Route("AddUser")]
+        [Route("AddRateType")]
 
-        public JsonResult AddUser([FromForm] string newCardId, [FromForm] string newName, [FromForm] string newLastname, [FromForm] string newEmail, [FromForm] string newPassword, [FromForm] string newCreated)
+        public JsonResult AddRateType([FromForm] string newName, [FromForm] string newDescription, [FromForm] string newCreated)
         {
-            string query = "insert into users values (@newCardId, @newName, @newLastname, @newEmail, @newPassword,@newCreated)";
+            string query = "insert into rateTypes values (@newName, @newDescription, @newCreated)";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -101,11 +101,8 @@ namespace api_banco_solidario.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@newCardId", newCardId);
                     myCommand.Parameters.AddWithValue("@newName", newName);
-                    myCommand.Parameters.AddWithValue("@newLastname", newLastname);
-                    myCommand.Parameters.AddWithValue("@newEmail", newEmail);
-                    myCommand.Parameters.AddWithValue("@newPassword", newPassword);
+                    myCommand.Parameters.AddWithValue("@newDescription", newDescription);
                     myCommand.Parameters.AddWithValue("@newCreated", newCreated);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -117,11 +114,11 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteUser")]
+        [Route("DeleteRateType")]
 
-        public JsonResult DeleteUser(int id)
+        public JsonResult DeleteRateType(int id)
         {
-            string query = "delete from users where id_user=@id";
+            string query = "delete from rateTypes where id_rateType=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;

@@ -6,21 +6,21 @@ namespace api_banco_solidario.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : Controller
+    public class TransactionsController : Controller
     {
         private IConfiguration _configuration;
 
-        public UsersController(IConfiguration configuration)
+        public TransactionsController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
         [HttpGet]
-        [Route("GetUsers")]
+        [Route("GetTransactions")]
 
-        public JsonResult GetUsers()
+        public JsonResult GetTransactions()
         {
-            string query = "select * from users";
+            string query = "select * from transactions";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -39,11 +39,11 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpGet]
-        [Route("GetUser")]
+        [Route("GetTransaction")]
 
-        public JsonResult GetUser(int id)
+        public JsonResult GetTransaction(int id)
         {
-            string query = "select * from users where id_user=@id";
+            string query = "select * from transactions where id_transaction=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -63,11 +63,11 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateUser")]
+        [Route("UpdateTransaction")]
 
-        public JsonResult UpdateUser([FromForm] string name, [FromForm] int id)
+        public JsonResult UpdateTransaction([FromForm] double total, [FromForm] int id)
         {
-            string query = "update users set name = @name  where id_user=@id";
+            string query = "update transactions set total = @total  where id_transaction=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -76,7 +76,7 @@ namespace api_banco_solidario.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@name", name);
+                    myCommand.Parameters.AddWithValue("@total", total);
                     myCommand.Parameters.AddWithValue("@id", id);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -88,11 +88,11 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpPost]
-        [Route("AddUser")]
+        [Route("AddTransaction")]
 
-        public JsonResult AddUser([FromForm] string newCardId, [FromForm] string newName, [FromForm] string newLastname, [FromForm] string newEmail, [FromForm] string newPassword, [FromForm] string newCreated)
+        public JsonResult AddAccount([FromForm] string newIdAccount, [FromForm] string newtype, [FromForm] double newTotal,[FromForm] string newCreated)
         {
-            string query = "insert into users values (@newCardId, @newName, @newLastname, @newEmail, @newPassword,@newCreated)";
+            string query = "insert into transactions values (@newIdAccount, @newtype,@newTotal, @newCreated)";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -101,11 +101,9 @@ namespace api_banco_solidario.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@newCardId", newCardId);
-                    myCommand.Parameters.AddWithValue("@newName", newName);
-                    myCommand.Parameters.AddWithValue("@newLastname", newLastname);
-                    myCommand.Parameters.AddWithValue("@newEmail", newEmail);
-                    myCommand.Parameters.AddWithValue("@newPassword", newPassword);
+                    myCommand.Parameters.AddWithValue("@newIdAccount", newIdAccount);
+                    myCommand.Parameters.AddWithValue("@newtype", newtype);
+                    myCommand.Parameters.AddWithValue("@newTotal", newTotal);
                     myCommand.Parameters.AddWithValue("@newCreated", newCreated);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -117,11 +115,11 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteUser")]
+        [Route("DeleteTransaction")]
 
-        public JsonResult DeleteUser(int id)
+        public JsonResult DeleteTransaction(int id)
         {
-            string query = "delete from users where id_user=@id";
+            string query = "delete from transactions where id_transaction=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -139,7 +137,5 @@ namespace api_banco_solidario.Controllers
             }
             return new JsonResult("Deleted Successfully");
         }
-
-
     }
 }

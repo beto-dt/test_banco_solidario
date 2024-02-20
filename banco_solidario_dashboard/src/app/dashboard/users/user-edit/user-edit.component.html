@@ -1,21 +1,13 @@
 <form class="example-form" (ngSubmit)="onEditUser()">
   <mat-form-field class="example-full-width">
-    <mat-label>Nombre</mat-label>
+    <mat-label>Name</mat-label>
     <input type="text" matInput [formControl]="nameFormControl"
-           placeholder="Ingresar Nombre" [value]="user.nombre">
+           placeholder="Ingresar Nombre" [value]="user.name">
     <mat-error *ngIf="nameFormControl.hasError('required')">
-      Nombre es <strong>requerido</strong>
+      Name is <strong>requerid</strong>
     </mat-error>
   </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Apellido</mat-label>
-    <input type="text" matInput [formControl]="lastnameFormControl"
-           placeholder="Ingresar Apellido" [value]="user.apellido">
-    <mat-error *ngIf="lastnameFormControl.hasError('required')">
-      Apellido es <strong>requerido</strong>
-    </mat-error>
-  </mat-form-field>
-  <button type="submit"[disabled]="(nameFormControl.pristine || lastnameFormControl.invalid) && (lastnameFormControl.pristine || nameFormControl.invalid)" mat-fab extended color="primary">
+  <button type="submit"[disabled]=" (nameFormControl.pristine || nameFormControl.invalid)" mat-fab extended color="primary">
     Guardar
   </button>
 </form>

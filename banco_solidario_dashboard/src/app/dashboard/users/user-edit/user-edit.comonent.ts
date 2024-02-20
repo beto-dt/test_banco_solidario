@@ -4,6 +4,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
+export interface UserIt {
+  id: string;
+}
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
@@ -13,7 +16,6 @@ export class UserEditComponent implements OnInit {
   durationInSeconds = 3000;
 
   nameFormControl = new FormControl('', [Validators.required]);
-  lastnameFormControl = new FormControl('', [Validators.required]);
   public user: any = [];
 
   constructor(
@@ -25,11 +27,13 @@ export class UserEditComponent implements OnInit {
 
   ngOnInit() {
     const params = this.activatedRoute.snapshot.params;
-
+    let user: any = {
+      id:params['id'],
+    }
     if (params['id']) {
-      this.usersService.getUser(params['id']).subscribe(
+      this.usersService.getUser(user).subscribe(
         (res) => {
-          this.user = res.data[0];
+          this.user = res.result[0];
           console.log(this.user);
         },
         (error) => {
@@ -41,17 +45,16 @@ export class UserEditComponent implements OnInit {
 
   onEditUser(): void {
     const params = this.activatedRoute.snapshot.params;
-    const nombre = this.nameFormControl.value;
-    const apellido = this.lastnameFormControl.value;
+    const name = this.nameFormControl.value;
 
     let user: any = {
-      nombre:nombre!,
-      apellido:apellido!
+      id:params['id'],
+      name:name!,
     }
 
 
-    this.usersService.updateUser(user,params['id']).subscribe( res => {
-        this.snackBar.open("Usuario Actualizado","",{duration:this.durationInSeconds});
+    this.usersService.updateUser(user).subscribe( res => {
+        this.snackBar.open("Updated User","",{duration:this.durationInSeconds});
 
         this.router.navigateByUrl('/dashboard/users/users');
       },

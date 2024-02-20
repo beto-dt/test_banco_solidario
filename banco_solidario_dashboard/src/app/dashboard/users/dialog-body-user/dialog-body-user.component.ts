@@ -17,14 +17,20 @@ export class DialogBodyUserComponent implements OnInit {
   ngOnInit(){}
 
   deleteUser() {
-    this.userService.deleteUser(this.data.id_usuario).
+    const id = this.data.id_usuario;
+
+    let user: any = {
+      id:id!
+    }
+    console.log(user)
+    this.userService.deleteUser(user).
     subscribe(
       res => {
-        this.snackBar.open("Usuario Eliminado","",{duration:this.durationInSeconds});
+        this.snackBar.open("User Deleted","",{duration:this.durationInSeconds});
         location.reload();
       },
       err => {
-        this.snackBar.open("Usuario No Eliminado","",{duration:this.durationInSeconds});
+        this.snackBar.open("User Not Deleted","",{duration:this.durationInSeconds});
       }
     )
   }

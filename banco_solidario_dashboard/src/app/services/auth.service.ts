@@ -37,7 +37,7 @@ export class AuthService {
         }
         this.snackBar.open("Autentificación Exitosa","",{duration:this.durationInSeconds});
 
-        this.saveToken(res.data.session_token);
+        this.saveToken(res.token,res.data[0].id_user,res.data[0].card_id,res.data[0].name,res.data[0].lastname,res.data[0].id_account,res.data[0].total,res.data[0].id_rateType);
         this.loggedId.next(true);
         return {
           status:true
@@ -47,6 +47,13 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('ACCESS_TOKEN');
+    localStorage.removeItem('ID_USER');
+    localStorage.removeItem('CARD_ID');
+    localStorage.removeItem('NAME');
+    localStorage.removeItem('LASTNAME');
+    localStorage.removeItem('ID_ACCOUNT');
+    localStorage.removeItem('TOTAL');
+    localStorage.removeItem('ID_RATETYPE');
     this.loggedId.next(false);
     this.router.navigate(['/login']);
   }
@@ -58,7 +65,14 @@ export class AuthService {
     isExpired ? this.logout() : this.loggedId.next(true);
   }
 
-  private saveToken(token: string): void {
+  private saveToken(token: string, id_user: string,card_id: string ,name: string, lastname: string, id_account: string, total: string, id_rateType: string): void {
     localStorage.setItem('ACCESS_TOKEN', token);
+    localStorage.setItem('ID_USER', id_user);
+    localStorage.setItem('CARD_ID', card_id);
+    localStorage.setItem('NAME', name);
+    localStorage.setItem('LASTNAME', lastname);
+    localStorage.setItem('ID_ACCOUNT', id_account);
+    localStorage.setItem('TOTAL', total);
+    localStorage.setItem('ID_RATETYPE', id_rateType);
   }
 }

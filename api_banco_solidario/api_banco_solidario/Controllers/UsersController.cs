@@ -45,6 +45,28 @@ namespace api_banco_solidario.Controllers
         }
 
         [HttpGet]
+        [Route("GetUsersLastId")]
+        public JsonResult GetUsersLastId()
+        {
+            string query = "SELECT TOP 1 * FROM users ORDER BY id_user DESC";
+            DataTable table = new DataTable();
+            string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDatasource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+            return new JsonResult(table);
+        }
+
+        [HttpPost]
         [Route("GetUser")]
 
         public dynamic GetUser([FromBody] Object optData)
@@ -133,6 +155,7 @@ namespace api_banco_solidario.Controllers
             string newPassword = data.password.ToString();
             string newCreated = data.created.ToString();
             string query = "insert into users values (@newCardId, @newName, @newLastname, @newEmail, @newPassword,@newCreated)";
+
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
             SqlDataReader myReader;
@@ -140,23 +163,24 @@ namespace api_banco_solidario.Controllers
             {
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myCommand.Parameters.AddWithValue("@newCardId", newCardId);
-                    myCommand.Parameters.AddWithValue("@newName", newName);
-                    myCommand.Parameters.AddWithValue("@newLastname", newLastname);
-                    myCommand.Parameters.AddWithValue("@newEmail", newEmail);
-                    myCommand.Parameters.AddWithValue("@newPassword", newPassword);
-                    myCommand.Parameters.AddWithValue("@newCreated", newCreated);
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-                    myReader.Close();
-                    myCon.Close();
-                        return new
-                        {
-                            success = true,
-                            message = "User Created",
-                        };
+                    {
+                        myCommand.Parameters.AddWithValue("@newCardId", newCardId);
+                        myCommand.Parameters.AddWithValue("@newName", newName);
+                        myCommand.Parameters.AddWithValue("@newLastname", newLastname);
+                        myCommand.Parameters.AddWithValue("@newEmail", newEmail);
+                        myCommand.Parameters.AddWithValue("@newPassword", newPassword);
+                        myCommand.Parameters.AddWithValue("@newCreated", newCreated);
+                        myReader = myCommand.ExecuteReader();
+                        table.Load(myReader);
+                        myReader.Close();
+                        myCon.Close();
+                            return new
+                            {
+                                success = true,
+                                message = "User Created",
+                            };
                 }
+
             }
         }
 
@@ -228,7 +252,7 @@ namespace api_banco_solidario.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpPost]
         [Route("DeleteUser")]
 
         public dynamic DeleteUser([FromBody] Object optData)

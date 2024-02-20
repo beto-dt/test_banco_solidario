@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth/auth.component';
 import { CheckLoginGuard } from './guards/check-login.guard';
-import {SliderBarModule} from "./sliderbar/sliderbar.module";
+import {SliderbarComponent} from "./sliderbar/sliderbar.component";
 
 const routes: Routes = [
   {path:'', redirectTo:'/login', pathMatch:'full'},
   { path: 'login', component: AuthComponent,canActivate:[CheckLoginGuard]},
-  { path: 'dashboard',component: SliderBarModule,
+  { path: 'dashboard',component: SliderbarComponent,
     children : [
       {
         path: 'users',

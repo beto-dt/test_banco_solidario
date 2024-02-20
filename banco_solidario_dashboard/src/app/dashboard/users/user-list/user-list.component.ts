@@ -23,7 +23,7 @@ export interface UserData {
 
 
 export class UserListComponent implements OnInit {
-  public displayedColumns: string[] = ['id_usuario', 'nombre', 'apellido', 'correo','estado','update','delete'];
+  public displayedColumns: string[] = ['id_user', 'card_id', 'name', 'lastname','email','update','delete'];
   public dataSource!: MatTableDataSource<UserData>;
   durationInSeconds = 3000;
 
@@ -38,7 +38,8 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe(res => {
-        this.dataSource = new MatTableDataSource(res.data);
+        this.dataSource = new MatTableDataSource(res);
+        console.log(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
 

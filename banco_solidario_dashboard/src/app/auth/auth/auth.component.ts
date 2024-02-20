@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AuthComponent {
   loginForm = this.fb.group({
-    correo:['',Validators.required],
+    email:['',Validators.required],
     password:['',Validators.required]
   })
   constructor(private authService:AuthService,private fb:FormBuilder ,private router: Router) {}

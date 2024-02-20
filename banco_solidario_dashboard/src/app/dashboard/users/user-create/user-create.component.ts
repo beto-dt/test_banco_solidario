@@ -4,11 +4,22 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import {AccountService} from "../../../services/account.service";
 export interface UserIt {
-  nombre: string;
-  apellido: string;
-  correo: string;
+  card_id: string;
+  name: string;
+  lastname: string;
+  email: string;
   password: string;
+  created: any;
+}
+
+export interface AccountIt {
+  id_user: string;
+  total: any;
+  description: string;
+  id_rateType: any;
+  created: any;
 }
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -26,8 +37,9 @@ export class UserCreateComponent {
   hide = true;
   durationInSeconds = 3000;
 
+  cardIdFormControl = new FormControl('', [Validators.required]);
   nameFormControl = new FormControl('', [Validators.required]);
-  lastnameFormControl = new FormControl('', [Validators.required]);
+  nameLastFormControl = new FormControl('', [Validators.required]);
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required]);
 
@@ -35,29 +47,51 @@ export class UserCreateComponent {
 
   constructor(
     private usersService:UserService,
+    private accountService:AccountService,
     private router:Router,
     private snackBar: MatSnackBar
   ){}
 
   onAddUser(): void {
-    const nombre = this.nameFormControl.value;
-    const apellido = this.lastnameFormControl.value;
-    const correo = this.emailFormControl.value;
-    const contrasena = this.passwordFormControl.value;
+    const card_id = this.cardIdFormControl.value;
+    const name = this.nameFormControl.value;
+    const lastname = this.nameLastFormControl.value;
+    const email = this.emailFormControl.value;
+    const password = this.passwordFormControl.value;
+    const created = new Date();
+
 
     let user: UserIt = {
-      nombre:nombre!,
-      apellido:apellido!,
-      correo:correo!,
-      password: contrasena!
+      card_id:card_id!,
+      name:name!,
+      lastname:lastname!,
+      email: email!,
+      password: password!,
+      created:created!
     }
 
     console.log(user);
 
     this.usersService.saveUser(user).subscribe( res => {
-        this.snackBar.open("Usuario Guardado","",{duration:this.durationInSeconds});
+      this.usersService.getUsersLastId().subscribe(res => {
+        console.log(res);
+        let account: AccountIt = {
+          id_user:res[0].id_user,
+          total:0,
+          description:'Cuenta de Ahorros',
+          id_rateType: 1,
+          created:new Date()
+        }
+          this.accountService.saveAccount(account).subscribe(res =>{
+            this.snackBar.open("User Added","",{duration:this.durationInSeconds});
+            this.snackBar.open("Account Added","",{duration:this.durationInSeconds});
+              this.router.navigateByUrl('/dashboard/users/users');
 
-        this.router.navigateByUrl('/dashboard/users/users');
+          },err => console.log(err)
+          )
+
+
+          },err => console.log(err))
       },
       err => console.log(err))
   }

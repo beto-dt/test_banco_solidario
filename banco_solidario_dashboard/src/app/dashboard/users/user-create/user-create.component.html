@@ -1,0 +1,43 @@
+<form class="example-form" (ngSubmit)="onAddUser()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Nombre</mat-label>
+    <input type="text" matInput [formControl]="nameFormControl"
+           placeholder="Ingresar Nombre">
+    <mat-error *ngIf="nameFormControl.hasError('required')">
+      Nombre es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Apellido</mat-label>
+    <input type="text" matInput [formControl]="lastnameFormControl"
+           placeholder="Ingresar Apellido">
+    <mat-error *ngIf="lastnameFormControl.hasError('required')">
+      Apellido es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+           placeholder="Ex. pat@example.com">
+    <mat-error *ngIf="emailFormControl.hasError('minlength') && !emailFormControl.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Contraseña</mat-label>
+    <input type="text" matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl"
+           placeholder="Ingresar Contraseña">
+    <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </a>
+    <mat-error *ngIf="lastnameFormControl.hasError('required')">
+      Contraseña es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <button type="submit"[disabled]="emailFormControl.pristine || emailFormControl.invalid" mat-fab extended color="primary">
+    Guardar
+  </button>
+</form>

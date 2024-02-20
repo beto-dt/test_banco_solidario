@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthComponent } from './auth/auth.component';
 import { MaterialModule } from '../material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import {SliderbarComponent} from "./sliderbar.component";
 
 
 
 @NgModule({
   declarations: [
-    AuthComponent
+    SliderbarComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    RouterModule
   ]
 })
-export class AuthModule { }
+export class SliderBarModule { }

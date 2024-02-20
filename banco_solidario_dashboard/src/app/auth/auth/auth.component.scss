@@ -1,0 +1,27 @@
+mat-sidenav-container{
+  height: calc(100vh - 65px);
+}
+
+.content_reberu {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+  display: flex;
+  font-size: 2rem;
+  color: lightgray;
+}
+
+
+.avatar_reberu {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.logo_reberu {
+  position: relative;
+  left: 25%;
+  right: 50%;
+}

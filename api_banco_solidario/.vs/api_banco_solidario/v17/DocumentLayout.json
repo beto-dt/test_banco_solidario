@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|c:\\users\\titos\\onedrive\\documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|solutionrelative:api_banco_solidario\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{72C3FD84-A451-4B91-9281-CB31DA6BE6D0}|docker-compose.dcproj|c:\\users\\titos\\onedrive\\documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{72C3FD84-A451-4B91-9281-CB31DA6BE6D0}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|c:\\users\\titos\\onedrive\\documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|solutionrelative:api_banco_solidario\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|c:\\users\\titos\\onedrive\\documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\db\\solidario.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|solutionrelative:api_banco_solidario\\db\\solidario.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+      "AbsoluteMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|c:\\users\\titos\\onedrive\\documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|solutionrelative:api_banco_solidario\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{72C3FD84-A451-4B91-9281-CB31DA6BE6D0}|docker-compose.dcproj|c:\\users\\titos\\onedrive\\documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{72C3FD84-A451-4B91-9281-CB31DA6BE6D0}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|c:\\users\\titos\\onedrive\\documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\db\\solidario.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|solutionrelative:api_banco_solidario\\db\\solidario.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{716E2973-2C22-44EF-B473-3B04DE31DE02}|api_banco_solidario\\api_banco_solidario.csproj|c:\\users\\titos\\onedrive\\documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\db\\solidario.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,7 +46,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "TransactionsController.cs",
               "DocumentMoniker": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\Controllers\\TransactionsController.cs",
               "RelativeDocumentMoniker": "api_banco_solidario\\Controllers\\TransactionsController.cs",
@@ -72,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "solidario.sql ",
               "DocumentMoniker": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\api_banco_solidario\\Db\\solidario.sql",
               "RelativeDocumentMoniker": "api_banco_solidario\\Db\\solidario.sql",
@@ -84,13 +84,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\docker-compose.yml",
               "RelativeDocumentMoniker": "docker-compose.yml",
               "ToolTip": "C:\\Users\\titos\\OneDrive\\Documentos\\banco_solidario\\test_banco_solidario\\api_banco_solidario\\docker-compose.yml",
               "RelativeToolTip": "docker-compose.yml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAjAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
               "WhenOpened": "2024-02-20T14:09:30.658Z",
               "EditorCaption": ""

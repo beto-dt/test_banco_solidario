@@ -1,0 +1,39 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <!-- Month Column -->
+  <ng-container matColumnDef="month">
+    <th mat-header-cell *matHeaderCellDef> Month </th>
+    <td mat-cell *matCellDef="let element"> {{element.month}} </td>
+  </ng-container>
+
+  <!-- Total_account Column -->
+  <ng-container matColumnDef="total_account">
+    <th mat-header-cell *matHeaderCellDef>Total_account</th>
+    <td mat-cell *matCellDef="let element"> {{element.total_account}} </td>
+  </ng-container>
+
+  <!-- Annual_interest Column -->
+  <ng-container matColumnDef="annual_interest">
+    <th mat-header-cell *matHeaderCellDef> Annual_interest </th>
+    <td mat-cell *matCellDef="let element"> {{element.annual_interest}} </td>
+  </ng-container>
+
+  <!-- Total_account_with_interest Column -->
+  <ng-container matColumnDef="total_account_with_interest">
+    <th mat-header-cell *matHeaderCellDef> Total_account_with_interest </th>
+    <td mat-cell *matCellDef="let element"> {{element.total_account_with_interest}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

@@ -9,6 +9,7 @@ import { DialogBodyUserComponent } from './users/dialog-body-user/dialog-body-us
 import {UserEditComponent} from "./users/user-edit/user-edit.comonent";
 import {TransactionListComponent} from "./transactions/transaction-list/transaction-list.component";
 import {TransactionCreateComponent} from "./transactions/transaction-create/transaction-create.component";
+import {InterestListComponent} from "./interest/interest-list/interest-list.component";
 
 
 
@@ -19,6 +20,7 @@ import {TransactionCreateComponent} from "./transactions/transaction-create/tran
     UserEditComponent,
     TransactionListComponent,
     TransactionCreateComponent,
+    InterestListComponent,
     DialogBodyUserComponent
   ],
   imports: [

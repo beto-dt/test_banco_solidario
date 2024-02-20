@@ -38,6 +38,11 @@
       <span><a [routerLink]="['/dashboard/transactions/transactionCreate']">Deposit/Retreat</a></span>
     </button>
     <mat-divider></mat-divider>
+    <button mat-button class="menu-button_solidario">
+      <mat-icon>money</mat-icon>
+      <span><a [routerLink]="['/dashboard/interests/interests']">Annual interest</a></span>
+    </button>
+    <mat-divider></mat-divider>
     <button mat-button class="menu-button_solidario" (click)="onLogout()">
       <mat-icon>logout</mat-icon>
       <span>Salir</span>

@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Newtonsoft.Json;
 using System.Data;
 
 namespace api_banco_solidario.Controllers
@@ -41,8 +43,10 @@ namespace api_banco_solidario.Controllers
         [HttpGet]
         [Route("GetRateType")]
 
-        public JsonResult GetRateType(int id)
+        public dynamic GetRateType([FromBody] Object optData)
         {
+            var data = JsonConvert.DeserializeObject<dynamic>(optData.ToString());
+            string id = data.id.ToString();
             string query = "select * from rateTypes where id_rateType=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
@@ -57,16 +61,36 @@ namespace api_banco_solidario.Controllers
                     table.Load(myReader);
                     myReader.Close();
                     myCon.Close();
+                    if (table.Rows.Count > 0)
+                    {
+                        return new
+                        {
+                            success = true,
+                            message = "Rate Types Found Successfully",
+                            result = table
+                        };
+                    }
+                    else
+                    {
+                        return new
+                        {
+                            success = false,
+                            message = "Rate Types not found",
+                        };
+
+                    }
                 }
             }
-            return new JsonResult(table);
         }
 
         [HttpPut]
         [Route("UpdateRateType")]
 
-        public JsonResult UpdateRateType([FromForm] string name, [FromForm] int id)
+        public dynamic UpdateRateType([FromBody] Object optData)
         {
+            var data = JsonConvert.DeserializeObject<dynamic>(optData.ToString());
+            string id = data.id.ToString();
+            string name = data.name.ToString();
             string query = "update rateTypes set name = @name  where id_rateType=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
@@ -82,16 +106,24 @@ namespace api_banco_solidario.Controllers
                     table.Load(myReader);
                     myReader.Close();
                     myCon.Close();
+                    return new
+                    {
+                        success = false,
+                        message = "Updated Successfully"
+                    };
                 }
             }
-            return new JsonResult("Updated Successfully");
         }
 
         [HttpPost]
         [Route("AddRateType")]
 
-        public JsonResult AddRateType([FromForm] string newName, [FromForm] string newDescription, [FromForm] string newCreated)
+        public dynamic AddRateType([FromBody] Object optData)
         {
+            var data = JsonConvert.DeserializeObject<dynamic>(optData.ToString());
+            string newName = data.name.ToString();
+            string newDescription = data.description.ToString();
+            string newCreated = data.created.ToString();
             string query = "insert into rateTypes values (@newName, @newDescription, @newCreated)";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
@@ -108,16 +140,22 @@ namespace api_banco_solidario.Controllers
                     table.Load(myReader);
                     myReader.Close();
                     myCon.Close();
+                    return new
+                    {
+                        success = true,
+                        message = "Rate Type Created",
+                    };
                 }
             }
-            return new JsonResult("Added Successfully");
         }
 
         [HttpDelete]
         [Route("DeleteRateType")]
 
-        public JsonResult DeleteRateType(int id)
+        public dynamic DeleteRateType([FromBody] Object optData)
         {
+            var data = JsonConvert.DeserializeObject<dynamic>(optData.ToString());
+            string id = data.id.ToString();
             string query = "delete from rateTypes where id_rateType=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
@@ -132,11 +170,13 @@ namespace api_banco_solidario.Controllers
                     table.Load(myReader);
                     myReader.Close();
                     myCon.Close();
+                    return new
+                    {
+                        success = true,
+                        message = "Rate Type Deleted",
+                    };
                 }
             }
-            return new JsonResult("Deleted Successfully");
         }
-
-
     }
 }

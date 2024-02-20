@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.Identity.Client;
+using Newtonsoft.Json;
 using System.Data;
 
 namespace api_banco_solidario.Controllers
@@ -41,8 +43,10 @@ namespace api_banco_solidario.Controllers
         [HttpGet]
         [Route("GetTransaction")]
 
-        public JsonResult GetTransaction(int id)
+        public dynamic GetTransaction([FromBody] Object optData)
         {
+            var data = JsonConvert.DeserializeObject<dynamic>(optData.ToString());
+            string id = data.id.ToString();
             string query = "select * from transactions where id_transaction=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
@@ -57,16 +61,36 @@ namespace api_banco_solidario.Controllers
                     table.Load(myReader);
                     myReader.Close();
                     myCon.Close();
+                    if (table.Rows.Count > 0)
+                    {
+                        return new
+                        {
+                            success = true,
+                            message = "Transaction Found Successfully",
+                            result = table
+                        };
+                    }
+                    else
+                    {
+                        return new
+                        {
+                            success = false,
+                            message = "Transaction not found",
+                        };
+
+                    }
                 }
             }
-            return new JsonResult(table);
         }
 
         [HttpPut]
         [Route("UpdateTransaction")]
 
-        public JsonResult UpdateTransaction([FromForm] double total, [FromForm] int id)
+        public dynamic UpdateTransaction([FromBody] Object optData)
         {
+            var data = JsonConvert.DeserializeObject<dynamic>(optData.ToString());
+            string id = data.id.ToString();
+            string total = data.total.ToString();
             string query = "update transactions set total = @total  where id_transaction=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
@@ -82,16 +106,25 @@ namespace api_banco_solidario.Controllers
                     table.Load(myReader);
                     myReader.Close();
                     myCon.Close();
+                    return new
+                    {
+                        success = false,
+                        message = "Updated Successfully"
+                    };
                 }
             }
-            return new JsonResult("Updated Successfully");
         }
 
         [HttpPost]
         [Route("AddTransaction")]
 
-        public JsonResult AddAccount([FromForm] string newIdAccount, [FromForm] string newtype, [FromForm] double newTotal,[FromForm] string newCreated)
+        public dynamic AddAccount([FromBody] Object optData)
         {
+            var data = JsonConvert.DeserializeObject<dynamic>(optData.ToString());
+            string newIdAccount = data.id_account.ToString();
+            string newtype = data.type.ToString();
+            string newTotal = data.total.ToString();
+            string newCreated = data.created.ToString();
             string query = "insert into transactions values (@newIdAccount, @newtype,@newTotal, @newCreated)";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
@@ -109,16 +142,22 @@ namespace api_banco_solidario.Controllers
                     table.Load(myReader);
                     myReader.Close();
                     myCon.Close();
+                    return new
+                    {
+                        success = true,
+                        message = "Transaction Created",
+                    };
                 }
             }
-            return new JsonResult("Added Successfully");
         }
 
         [HttpDelete]
         [Route("DeleteTransaction")]
 
-        public JsonResult DeleteTransaction(int id)
+        public dynamic DeleteTransaction([FromBody] Object optData)
         {
+            var data = JsonConvert.DeserializeObject<dynamic>(optData.ToString());
+            string id = data.id.ToString();
             string query = "delete from transactions where id_transaction=@id";
             DataTable table = new DataTable();
             string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
@@ -133,9 +172,13 @@ namespace api_banco_solidario.Controllers
                     table.Load(myReader);
                     myReader.Close();
                     myCon.Close();
+                    return new
+                    {
+                        success = true,
+                        message = "Transaction Deleted",
+                    };
                 }
             }
-            return new JsonResult("Deleted Successfully");
         }
     }
 }

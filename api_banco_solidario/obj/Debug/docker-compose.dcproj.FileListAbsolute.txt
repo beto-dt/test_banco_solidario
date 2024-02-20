@@ -18,3 +18,11 @@ C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banc
 C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\bin\Debug\Newtonsoft.Json.dll
 C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\bin\Debug\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\bin\Debug\Newtonsoft.Json.Bson.dll
+C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\bin\Debug\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\bin\Debug\Microsoft.IdentityModel.Abstractions.dll

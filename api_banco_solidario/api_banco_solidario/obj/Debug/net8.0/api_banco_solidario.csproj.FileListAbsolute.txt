@@ -139,3 +139,4 @@ C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banc
 C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\api_banco_solidario\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\api_banco_solidario\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\api_banco_solidario\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\titos\OneDrive\Documentos\banco_solidario\test_banco_solidario\api_banco_solidario\api_banco_solidario\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

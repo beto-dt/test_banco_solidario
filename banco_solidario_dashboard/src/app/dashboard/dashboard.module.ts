@@ -7,6 +7,8 @@ import { MaterialModule } from '../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogBodyUserComponent } from './users/dialog-body-user/dialog-body-user.component';
 import {UserEditComponent} from "./users/user-edit/user-edit.comonent";
+import {TransactionListComponent} from "./transactions/transaction-list/transaction-list.component";
+import {TransactionCreateComponent} from "./transactions/transaction-create/transaction-create.component";
 
 
 
@@ -15,6 +17,8 @@ import {UserEditComponent} from "./users/user-edit/user-edit.comonent";
     UserCreateComponent,
     UserListComponent,
     UserEditComponent,
+    TransactionListComponent,
+    TransactionCreateComponent,
     DialogBodyUserComponent
   ],
   imports: [

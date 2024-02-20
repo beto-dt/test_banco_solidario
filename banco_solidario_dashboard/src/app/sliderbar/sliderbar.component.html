@@ -26,7 +26,16 @@
     <mat-divider></mat-divider>
     <button mat-button class="menu-button_solidario">
       <mat-icon>person</mat-icon>
-      <span><a [routerLink]="['users/users']">Usuarios</a></span>
+      <span><a [routerLink]="['users/users']">Users</a></span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button_solidario">
+      <mat-icon>money</mat-icon>
+      <span><a [routerLink]="['transactions/transactions']">Transactions</a></span>
+    </button>
+    <button mat-button class="menu-button_solidario">
+      <mat-icon>money</mat-icon>
+      <span><a [routerLink]="['/dashboard/transactions/transactionCreate']">Deposit/Retreat</a></span>
     </button>
     <mat-divider></mat-divider>
     <button mat-button class="menu-button_solidario" (click)="onLogout()">

@@ -40,6 +40,50 @@ namespace api_banco_solidario.Controllers
             return new JsonResult(table);
         }
 
+
+        [HttpPost]
+        [Route("GetTransactionIdAccount")]
+
+        public dynamic GetTransactionIdAccount([FromBody] Object optData)
+        {
+            var data = JsonConvert.DeserializeObject<dynamic>(optData.ToString());
+            string id = data.id.ToString();
+            string query = "select * from transactions where id_account=@id";
+            DataTable table = new DataTable();
+            string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDatasource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myCommand.Parameters.AddWithValue("@id", id);
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                    if (table.Rows.Count > 0)
+                    {
+                        return new
+                        {
+                            success = true,
+                            message = "Transaction Found Successfully",
+                            result = table
+                        };
+                    }
+                    else
+                    {
+                        return new
+                        {
+                            success = false,
+                            message = "Transaction not found",
+                        };
+
+                    }
+                }
+            }
+        }
+
         [HttpGet]
         [Route("GetTransaction")]
 

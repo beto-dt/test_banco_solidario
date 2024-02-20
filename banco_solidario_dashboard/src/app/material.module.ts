@@ -12,6 +12,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from "@angular/material/select";
 
 
 const myModules = [
@@ -27,7 +28,8 @@ const myModules = [
   MatSortModule,
   MatMenuModule,
   MatSnackBarModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule
 ];
 @NgModule({
   imports: [...myModules],

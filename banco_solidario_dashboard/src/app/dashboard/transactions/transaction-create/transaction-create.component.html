@@ -1,0 +1,23 @@
+<form class="example-form" (ngSubmit)="onAddUser()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Select Type of transaction</mat-label>
+    <mat-select matInput [formControl]="typeFormControl">
+      <mat-option value="Deposit">Deposit</mat-option>
+      <mat-option value="Retreat">Retreat</mat-option>
+    </mat-select>
+    <mat-error *ngIf="typeFormControl.hasError('required')">
+      Type is <strong>requerid</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Total</mat-label>
+    <input type="number" matInput [formControl]="totalFormControl"
+           placeholder="Money">
+    <mat-error *ngIf="totalFormControl.hasError('required')">
+      Total is <strong>requerid</strong>
+    </mat-error>
+  </mat-form-field>
+  <button type="submit"[disabled]="typeFormControl.pristine || typeFormControl.invalid" mat-fab extended color="primary">
+    Save
+  </button>
+</form>
